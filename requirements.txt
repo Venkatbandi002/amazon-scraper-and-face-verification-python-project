@@ -1,0 +1,21 @@
+# Project 1: Face Verification API
+
+fastapi
+uvicorn[standard]
+numpy
+opencv-python
+mtcnn
+keras-facenet
+scikit-learn
+python-multipart
+tensorflow
+
+# Project 2: Amazon Scraper
+
+requests
+beautifulsoup4
+lxml
+pandas
+tqdm
+selenium
+webdriver-manager
