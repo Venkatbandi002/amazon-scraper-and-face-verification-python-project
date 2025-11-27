@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Face Verification UI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h2, h3 {
+      color: #333;
+    }
+    label {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input[type="file"] {
+      margin-top: 5px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #responseBox {
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      padding: 10px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      min-height: 50px;
+      margin-top: 10px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Face Verification (FastAPI)</h2>
+
+  <label for="img1">Upload Image 1:</label>
+  <input type="file" id="img1" accept="image/*"><br>
+
+  <label for="img2">Upload Image 2:</label>
+  <input type="file" id="img2" accept="image/*"><br><br>
+
+  <button onclick="verifyFaces()">Verify Faces</button>
+
+  <hr>
+
+  <h3>API Response:</h3>
+  <pre id="responseBox">Awaiting verification results...</pre>
+
+<script>
+async function verifyFaces() {
+  const responseBox = document.getElementById("responseBox");
+  responseBox.textContent = "Processing request, please wait...";
+
+  try {
+    const file1 = document.getElementById("img1").files[0];
+    const file2 = document.getElementById("img2").files[0];
+
+    if (!file1 || !file2) {
+      alert("Please upload both images.");
+      responseBox.textContent = "Awaiting verification results...";
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("image1", file1);
+    formData.append("image2", file2);
+
+    const res = await fetch("http://localhost:8000/verify-faces", {
+      method: "POST",
+      body: formData
+    });
+
+    const text = await res.text();
+    console.log("RAW RESPONSE:", text);
+
+    // Check if the response is valid JSON before parsing
+    if (!res.ok) {
+        // Handle HTTP error status (4xx, 5xx)
+        responseBox.textContent = `Error ${res.status}: ${res.statusText}\n\n${text}`;
+        return;
+    }
+
+    const json = JSON.parse(text);
+
+    document.getElementById("responseBox").textContent =
+      JSON.stringify(json, null, 2);
+
+  } catch (err) {
+    console.error("Error:", err);
+    document.getElementById("responseBox").textContent = "Connection Error: Could not reach the FastAPI server. Is it running on http://localhost:8000?";
+  }
+}
+</script>
+
+
+</body>
+</html>
