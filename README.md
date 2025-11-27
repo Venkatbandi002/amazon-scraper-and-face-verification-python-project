@@ -4,7 +4,7 @@ A collection of two Python-based projects demonstrating practical applications o
 
 This repository contains:
 
-- **Project 1:** Face Verification API (FastAPI + FaceNet)  
+- **Project 1:** Face Authentication API (FastAPI + FaceNet)  
 - **Project 2:** Amazon Laptop Scraper (Requests + BeautifulSoup + Selenium optional)  
 - `requirements.txt` for all dependencies  
 - Simple front-end HTML page for testing the API  
