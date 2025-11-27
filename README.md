@@ -97,6 +97,11 @@ This project provides an API to compare two face images and determine whether th
   "model": "FaceNet (keras-facenet) + MTCNN"
 }
 ```
+### Output
+<img height="200" alt="image" src="https://github.com/user-attachments/assets/1fbc30c7-081d-44e7-85a2-0f4097397c8c" />
+<img width="634" height="140" alt="image" src="https://github.com/user-attachments/assets/fd6a2c93-505a-4258-8e8f-afd79042f838" />
+
+
 
 ---
 
@@ -146,6 +151,13 @@ Choose custom output directory:
 ```bash
 python scrape.py --out scraped_data
 ```
+
+### Output
+
+python scrape.py         
+Fetching pages: 100%|█████████████████████████████████████████████████████████████████████████████████████████| 20/20 [00:42<00:00,  2.14s/it]
+<img width="354" height="171" alt="image" src="https://github.com/user-attachments/assets/85bbad01-ee8a-4a9b-bc61-bb21dadda246" />
+
 
 Output CSV stored automatically with a timestamp.
 
