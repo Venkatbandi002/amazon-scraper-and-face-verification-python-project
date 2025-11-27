@@ -57,8 +57,44 @@ This project provides an API to compare two face images and determine whether th
 ```json
 {
   "verification_result": "Same person",
-  "similarity_score": 0.82,
-  "threshold_used": 0.7
+  "similarity_score": 0.9947601556777954,
+  "image1": {
+    "num_faces": 1,
+    "bounding_boxes": [
+      [
+        357,
+        318,
+        574,
+        626
+      ]
+    ],
+    "detection_probs": [
+      0.9838451147079468
+    ]
+  },
+  "image2": {
+    "num_faces": 2,
+    "bounding_boxes": [
+      [
+        1255,
+        1138,
+        2022,
+        2255
+      ],
+      [
+        1663,
+        3329,
+        1732,
+        3412
+      ]
+    ],
+    "detection_probs": [
+      0.9985344409942627,
+      0.8942990303039551
+    ]
+  },
+  "threshold_used": 0.7,
+  "model": "FaceNet (keras-facenet) + MTCNN"
 }
 ```
 
