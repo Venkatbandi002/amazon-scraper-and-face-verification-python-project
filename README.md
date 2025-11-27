@@ -1,8 +1,5 @@
-# amazon-scraper-and-face-verification-python-project
+# README.md (Face Verification API + Amazon Laptop Scraper  )
 
-# README.md (Combined for Both Projects)
-
-# Face Verification API + Amazon Laptop Scraper  
 A collection of two Python-based projects demonstrating practical applications of **FastAPI**, **computer vision**, **web scraping**, and **data processing**.
 
 This repository contains:
