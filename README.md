@@ -100,7 +100,7 @@ This project provides an API to compare two face images and determine whether th
 
 ---
 
-# **Project 2: Amazon Laptop Scraper**
+# **Project 2: Amazon Scraper**
 
 A Python script that scrapes Amazon.in search results for **laptop listings**, extracting:
 
